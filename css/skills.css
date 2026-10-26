@@ -1,0 +1,83 @@
+/* =========================================================
+   GIDEON NYONDO — SKILLS PAGE STYLES
+   Loaded after style.css on skills.html.
+   Uses the shared theme variables defined in style.css
+   (--bg, --surface, --surface-2, --text, --muted, --border,
+   --accent, --shadow) so the page follows the site theme
+   in both light and dark modes.
+   ========================================================= */
+
+/* ---------- Skills grid ---------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.skill-card {
+  padding: 26px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+  box-shadow: 0 26px 60px
+    light-dark(rgb(19 42 68 / 16%), rgb(0 0 0 / 42%));
+}
+
+.skill-icon {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: var(--surface-2);
+  font-size: 1.45rem;
+  margin-bottom: 16px;
+}
+
+.skill-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.skill-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* ---------- Tools tag row spacing ---------- */
+.tech-tags {
+  margin-top: 30px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Print ---------- */
+@media print {
+  .skill-card {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+}
